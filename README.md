@@ -1,4 +1,5 @@
 # mongo-article-scraper
 
 todo  
-npm init  
+npm init  
+https://www.theverge.com/photography  
