@@ -15,7 +15,7 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
-  // This only saves one note's ObjectId, ref refers to the Comment model
+  // This only saves one comment's ObjectId, ref refers to the Comment model
   comment: {
     type: Schema.Types.ObjectId,
     ref: "Comment"
