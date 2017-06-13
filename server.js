@@ -14,6 +14,7 @@ mongoose.Promise = Promise;
 
 // Initialize Express
 var app = express();
+var PORT = process.env.PORT || 8080;
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
@@ -50,6 +51,6 @@ require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Listen on port 8080
-app.listen(8080, function() {
-  console.log("App running on port 8080!");
+app.listen(PORT, function() {
+  console.log("App running on port "+PORT+"!");
 });
