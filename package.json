@@ -1,20 +1,37 @@
 {
-  "name": "mongoose_skeleton",
+  "name": "mongo-article-scraper",
   "version": "1.0.0",
-  "description": "",
+  "description": "mongo web scraper",
   "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.1",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.10.6",
+    "morgan": "^1.8.2",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lasperilla/mongo-article-scraper.git"
+  },
+  "keywords": [
+    "mongodb",
+    "monogo",
+    "mongoose",
+    "cheerio",
+    "webscraper"
+  ],
+  "author": "lawrence asperilla",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.15.0",
-    "cheerio": "^0.20.0",
-    "express": "^4.13.4",
-    "mongoose": "^4.4.6",
-    "morgan": "^1.7.0",
-    "request": "^2.69.0"
-  }
+  "bugs": {
+    "url": "https://github.com/lasperilla/mongo-article-scraper/issues"
+  },
+  "homepage": "https://github.com/lasperilla/mongo-article-scraper#readme"
 }
