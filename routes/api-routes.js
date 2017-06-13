@@ -47,7 +47,7 @@ module.exports = function(app) {
 
             });
         });
-        // // Tell the browser that we finished scraping the text
+        // Tell the browser that we finished scraping the text
         res.redirect("/");
     });
 

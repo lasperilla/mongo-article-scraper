@@ -93,10 +93,16 @@
                 <div class="col-sm-7">
                     <div class="header-content">
                         <div class="header-content-inner">
-                            <h1>Step 1: Click to Load Articles</h1>
-                            <a href="#scrape" class="btn btn-outline btn-xl page-scroll">Scrape</a>
+                            <h1>Photography News Scraper</h1>
                             <hr>
-                            <h1>Step 2: Read the News</h1>
+                            <br>
+                            <h2>Step 1: Click to Scrape</h2>
+                            <a href="/scrape" class="btn btn-outline btn-xl page-scroll">Scrape</a>
+                            <br>
+                            <h2>Step 2: Wait a Few Seconds, Click to Load Articles</h2>
+                            <a href="/" class="btn btn-outline btn-xl page-scroll">Load Articles</a>
+                            <br>
+                            <h2>Step 3: Read the News</h2>
                             <a href="#download" class="btn btn-outline btn-xl page-scroll">View results</a>
                         </div>
                     </div>
@@ -162,11 +168,10 @@
             // With that done, add the comment information to the page
             .done(function(data) {
               console.log(data);
-              // The title of the article
+
               var myDiv = $("<div>")
-              myDiv.append("<div class=\"row\"><p>" + data.title + "</p></div>");
               // An input to enter a new title
-              myDiv.append("<div class=\"row\"><input id='titleinput' name='title' placeholder=\"Comment Title\"></div>");
+              myDiv.append("<hr><div class=\"row\"><input id='titleinput' name='title' placeholder=\"Comment Title\"></div>");
               // A textarea to add a new comment body
               myDiv.append("<div class=\"row\"><textarea id='bodyinput' name='body' placeholder=\"Type Comment Here\"></textarea></div>");
               // A button to submit a new comment, with the id of the article saved to it
