@@ -6,6 +6,23 @@ var Article = require("../models/Article.js");
 // =============================================================
 module.exports = function(app) {
 
+		//Load homepage
+		app.get("/", function(req, res) {
+       Article.find({}, function(error, doc) {
+            // Log any errors
+            if (error) {
+                console.log(error);
+            }
+            else {
+                var hbsObject = {articles:doc.slice(0,20)}
+                console.log(hbsObject)
+                res.render("index", hbsObject);
+            }
+        });
+
+        
+    });
+
     // This will get the articles we scraped from the mongoDB
     app.get("/articles", function(req, res) {
         // Grab every doc in the Articles array

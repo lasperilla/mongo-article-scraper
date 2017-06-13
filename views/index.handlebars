@@ -1,0 +1,17 @@
+{{#each articles}}
+
+
+
+
+  <div class="panel panel-info">
+  	<div class="panel-body"><h1 class="articlestyle" data-id="{{{this._id}}}">{{this.title}}</h1></div>
+    <div class="panel-footer"><a href="{{{this.link}}}"><button type="button" class="btn btn-success btn-sm">>Go to article</button></a>
+    <span id="comment-{{{this._id}}}"></span></div>
+  </div>
+  
+<!-- <p> {{this.title}}</p>
+<p> {{this.link}}</p> -->
+
+<hr>
+
+{{/each}} 
