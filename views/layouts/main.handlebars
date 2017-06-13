@@ -142,9 +142,47 @@
     <!-- Theme JavaScript -->
     <script src="js/new-age.min.js"></script>
     
-    <script src="js/app.js"</script> 
+    <!-- <script src="js/app.js"</script>  -->
 
-    
+    <script type="text/javascript">
+        $(".articlestyle").click(function() {
+          // alert("hi")
+          // Save the id from the p tag
+          var thisId = $(this).attr("data-id");
+          // Empty the comments from the comment section
+          var commentSpanId = "#comment-"+thisId
+
+          $(commentSpanId).empty()
+
+          // Now make an ajax call for the Article
+          $.ajax({
+            method: "GET",
+            url: "/articles/" + thisId
+          })
+            // With that done, add the comment information to the page
+            .done(function(data) {
+              console.log(data);
+              // The title of the article
+              var myDiv = $("<div>")
+              myDiv.append("<div class=\"row\"><p>" + data.title + "</p></div>");
+              // An input to enter a new title
+              myDiv.append("<div class=\"row\"><input id='titleinput' name='title' placeholder=\"Comment Title\"></div>");
+              // A textarea to add a new comment body
+              myDiv.append("<div class=\"row\"><textarea id='bodyinput' name='body' placeholder=\"Type Comment Here\"></textarea></div>");
+              // A button to submit a new comment, with the id of the article saved to it
+              myDiv.append("<div class=\"row\"><button data-id='" + data._id + "' id='savecomment'>Save Comment</button></div>");
+              $(commentSpanId).append(myDiv)
+
+              // If there's a comment in the article
+              if (data.comment) {
+                // Place the title of the comment in the title input
+                $("#titleinput").val(data.comment.title);
+                // Place the body of the comment in the body textarea
+                $("#bodyinput").val(data.comment.body);
+              }
+            });
+        });
+    </script>
 
 </body>
 
