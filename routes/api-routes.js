@@ -79,4 +79,31 @@ module.exports = function(app) {
             }
         });
     });
+
+    app.delete("/articles/delete", function(req, res) {
+
+        Article.remove({}, function(err, todo) {
+            if (err) {
+                console.log(err)
+                return res.status(500).send()
+            } 
+            return res.status(200).send()
+            // db.Article.remove({}, function(err) {
+            //     if (err) {
+            //         console.log(err)
+            //     } else {
+            //         console.log('collection removed')    
+            //     };
+            // });
+            // db.articles.drop()
+            // mongoose.connection.db.dropDatabase(function(err) {
+            //     console.log('db dropped');
+            //     process.exit(0);
+            // });
+            // res.redirect("/");
+        })
+    });
+
+
+
 };

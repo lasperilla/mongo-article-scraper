@@ -455,3 +455,11 @@ body {
 .spanstyle {
   color: black
 }
+.botmargin {
+  margin-bottom: 25px
+}
+
+.deletescrape{
+  font-size: 13px;
+  font-weight: 600;
+}
