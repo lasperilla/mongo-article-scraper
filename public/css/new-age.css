@@ -225,7 +225,7 @@ section h2 {
   font-size: 50px;
 }
 section.download {
-  padding: 150px 0;
+  padding: 50px 0;
   position: relative;
 }
 section.download h2 {
@@ -462,4 +462,8 @@ body {
 .deletescrape{
   font-size: 13px;
   font-weight: 600;
+}
+
+.tinytext {
+  font-size: 10px;
 }

@@ -52,7 +52,8 @@ module.exports = function(app) {
     });
 
     // Create a new comment or replace an existing comment
-    app.post("/articles/:id", function(req, res) {
+    app.post("/comment/:id", function(req, res) {
+        console.log(req.body)
         // Create a new comment and pass the req.body to the entry
         var newComment = new Comment(req.body);
 
@@ -64,8 +65,9 @@ module.exports = function(app) {
             }
             // Otherwise
             else {
+                console.log(doc)
                 // Use the article id to find and update it's comment
-                db.Article.findOneAndUpdate({ "_id": req.params.id }, { "comment": doc._id })
+                Article.findOneAndUpdate({ "_id": req.params.id }, { "comment": doc._id })
                     // Execute the above query
                     .exec(function(err, doc) {
                         // Log any errors
@@ -80,6 +82,21 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/api/articles/:id", function(req, res){
+        Article.findOne({ "_id": req.params.id })
+                    .populate("comment")
+                    // Execute the above query
+                    .exec(function(err, doc) {
+                        // Log any errors
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            // Or send the document to the browser
+                            res.send(doc);
+                        }
+                    });
+    })
+
     app.delete("/articles/delete", function(req, res) {
 
         Article.remove({}, function(err, todo) {
@@ -88,19 +105,14 @@ module.exports = function(app) {
                 return res.status(500).send()
             } 
             return res.status(200).send()
-            // db.Article.remove({}, function(err) {
-            //     if (err) {
-            //         console.log(err)
-            //     } else {
-            //         console.log('collection removed')    
-            //     };
-            // });
-            // db.articles.drop()
-            // mongoose.connection.db.dropDatabase(function(err) {
-            //     console.log('db dropped');
-            //     process.exit(0);
-            // });
-            // res.redirect("/");
+        })
+
+        Comment.remove({}, function(err, todo) {
+            if (err) {
+                console.log(err)
+                return res.status(500).send()
+            } 
+            return res.status(200).send()
         })
     });
 
